@@ -7,8 +7,6 @@
 package DAO;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import models.User;
 
 public class UserDao {
@@ -76,12 +74,14 @@ public class UserDao {
         }
         return result;
     }
-                public void izmenaUser(String name,int id){
+                public void izmenaUser(String name,String email,String password,int id){
                             try {
-            query = "update users SET uname='?' WHERE id=?";
+            query = "update users SET uname=?,email=?,password=? WHERE id=?";
             pst = this.con.prepareStatement(query);
             pst.setString(1, name);
-            pst.setInt(2, id);
+            pst.setString(2, email);
+            pst.setString(3, password);
+            pst.setInt(4, id);
 
             pst.executeUpdate();
 

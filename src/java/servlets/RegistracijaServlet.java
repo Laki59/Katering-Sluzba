@@ -9,14 +9,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import java.sql.*;
-import java.sql.PreparedStatement;
+
 import DAO.UserDao;
 import java.io.PrintWriter;
 import konekcija.DBConnection;
-import models.User;
+
 
 /**
  *

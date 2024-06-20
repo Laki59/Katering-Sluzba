@@ -14,15 +14,17 @@ if (auth != null) {
 <html>
     <head>
         <link rel="stylesheet" href="css/tablecss.css" type="text/css">
-          <%@include file="head.jsp"%>
+        <%@include file="head.jsp"%>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-       
-           <title>Ketering Ginic</title>
+
+        <title>Ketering Ginic</title>
     </head>
-            <%@include file="navbar2.jsp"%>
+    <%@include file="navbar2.jsp"%>
     <body>
-            <center>
+
+    <center>
         <table class="styled-table">
+            <h2>KORISNICI</h2>
             <tr>
                 <th>id</th>
                 <th>name</th>
@@ -32,17 +34,17 @@ if (auth != null) {
                 <th>izbrisi</th>
 
             </tr>
-        <%
-            try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/katering","root","SKIJANJE123");
-            Statement st=con.createStatement();
-            String str="select * from users";
-            ResultSet rs=st.executeQuery(str);
-        while(rs.next()){%>
-            
+            <%
+                try{
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/katering","root","SKIJANJE123");
+                Statement st=con.createStatement();
+                String str="select * from users";
+                ResultSet rs=st.executeQuery(str);
+            while(rs.next()){%>
+
             <tr>
-                
+
                 <td><%=rs.getString("id")%></td>
                 <td><%=rs.getString("uname")%></td>
                 <td><%=rs.getString("email")%></td>
@@ -54,11 +56,13 @@ if (auth != null) {
 } catch(Exception e){
 
 }
-%>
+            %>
         </table>
     </center>
     <center>
+
         <table class="styled-table">
+            <h2>NARUDZBINE</h2>
             <tr>
                 <th>Id narudzbine</th>
                 <th>Usluga </th>
@@ -76,7 +80,7 @@ if (auth != null) {
                 String str="select orders.o_id,products.name,users.uname,orders.o_quantity,orders.o_date from orders JOIN users on users.id=orders.u_id JOIN products on products.id=orders.p_id";
                 ResultSet rs=st.executeQuery(str);
             while(rs.next()){%>
-   
+
 
             <tr>
 
@@ -92,8 +96,48 @@ if (auth != null) {
 
 }
             %>
-                       
+
         </table>
     </center>
-    </body>
+    <center>
+        <h2>USLUGE</h2>
+        <table class="styled-table">
+            <tr>
+                <th>Id narudzbine</th>
+                <th>Usluga </th>
+                <th>Kategorija</th>
+                <th>Cena</th>
+                <th>Slika</th>
+                <th>Izbrisi</th>
+
+            </tr>
+            <%
+                try{
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/katering","root","SKIJANJE123");
+                Statement st=con.createStatement();
+                String str="select id,name,category,price,image from products";
+                ResultSet rs=st.executeQuery(str);
+            while(rs.next()){%>
+
+
+            <tr>
+
+                <td><%=rs.getString("id") %></td>
+                <td><%=rs.getString("name") %></td>
+                <td><%=rs.getString("category") %></td>
+                <td><%=rs.getString("price") %></td>
+                <td><%=rs.getString("image") %></td>
+                <td><a class="btn btn-sm btn-danger" href="CancelProductAdminServlet?id=<%=rs.getString("id")%>">X</a></td>
+            </tr>
+            <%} 
+} catch(Exception e){
+
+}
+            %>
+
+        </table>
+
+    </center>
+</body>
 </html>

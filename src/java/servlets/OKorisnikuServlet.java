@@ -16,27 +16,31 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class OKorisnikuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try(PrintWriter out = response.getWriter()) {
 			String ime = request.getParameter("dIme");
-                      Integer id = Integer.parseInt(request.getParameter("dId"));
+                      Integer id = Integer.valueOf(request.getParameter("dId"));
+                      String email = request.getParameter("dEmail");
+                      String sifra = request.getParameter("dSifra");
 			if(id != null) {
 				UserDao userDao = new UserDao(DBConnection.getConnection());
-				userDao.izmenaUser(ime,id);
+				userDao.izmenaUser(ime,email,sifra,id);
 			}
-			response.sendRedirect("oKorisnku.jsp");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch(ClassNotFoundException s){
-                    s.printStackTrace();
-                }
+			response.sendRedirect("LogoutServlet");
+		
+        } catch (SQLException ex) {
+            System.out.println("GRESK " + ex);
+        }   catch (ClassNotFoundException ex) {
+                Logger.getLogger(OKorisnikuServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
 	}
 
 }

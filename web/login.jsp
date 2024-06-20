@@ -45,6 +45,16 @@
                         </div>
                     </form>
                 </div>
+                
+
+      
         </div>
+            <center>
+                      <% String poruka=(String)request.getAttribute("poruka");
+        if(poruka != null && !poruka.trim().equals("")){%>
+        <p style="color:red;"> <%=poruka%></p>
+        <%}%>
+            </center>
+            
     </body>
 </html>

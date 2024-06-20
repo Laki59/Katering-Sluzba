@@ -24,26 +24,27 @@ if (auth != null) {
         <div class="container">
             <div class="card w-50 mx-auto my-5">
                 <div class="card-body">
-
+                    <form method="POST" action="OKorisnikuServlet">
                         <div class="form-group">
                             <label>Id</label> 
-                            <input type="text" value="<%=auth.getId()%>" name="dId" class="form-control">
+                            <input type="text" value="<%=auth.getId()%>" name="dId" class="form-control" readonly>
                         </div>
                         <div class="form-group">
                             <label>Ime</label> 
-                            <input type="text" value="<%=auth.getName()%>" name="dIme" class="form-control">
+                            <input type="text" value="<%=auth.getName()%>" name="dIme" class="form-control" required="">
                         </div>
                         <div class="form-group">
                             <label>Email</label> 
-                            <input type="text" value="<%=auth.getEmail()%>" name="dEmail" class="form-control">
+                            <input type="text" value="<%=auth.getEmail()%>" name="dEmail" class="form-control" required="">
                         </div>
                         <div class="form-group">
                             <label>Sifra</label> 
-                            <input type="password" value="<%=auth.getPassword()%>" name="dSifra" class="form-control">
+                            <input type="password" name="dSifra" class="form-control" required="">
                         </div>
                         <div class="text-center">
-                             <a class="btn btn-sm btn-danger" href="OKorisnikuServlet">Izmeni</a>
+                             <input type="submit" value="izmeni"/>
                         </div>
+                    </form>
 
                 </div>
             </div>

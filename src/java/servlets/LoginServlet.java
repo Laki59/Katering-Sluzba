@@ -32,8 +32,10 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String poruka="";
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
             String email = request.getParameter("login-email");
             String password = request.getParameter("login-sifra");
 
@@ -50,14 +52,17 @@ public class LoginServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
                 rd.forward(request, response);
             } else {
+               poruka+="Sva polja moraju biti popunjena<br>"
+                       + "Email ili lozinka su pogresno uneseni";
+               request.setAttribute("poruka", poruka);
                 RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
                 rd.forward(request, response);
+               
             }
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(RegistracijaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            System.out.println("GRESK " + ex);
+        } catch (Exception e){
+            e.printStackTrace();
+            poruka+="Pogresna lozinka itd";
         }
 
     }
