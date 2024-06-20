@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package servlets;
 
 import java.io.IOException;
@@ -22,7 +18,7 @@ import models.*;
 
 
 
-public class CheckoutServlet extends HttpServlet {
+public class CheckOutReductionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
@@ -44,14 +40,14 @@ public class CheckoutServlet extends HttpServlet {
 					order.setUid(auth.getId());
 					order.setQunatity(c.getQuantity());
 					order.setDate(formatter.format(date));
-                                         
+                                       
 					/*Konekcija sa BP i ubacivanje u order tabelu*/
                                        
 					OrderDao oDao = new OrderDao(DBConnection.getConnection());
 					boolean result = oDao.insertOrder(order);
 					if(!result) break;
 				}
-                               uDao.addPointsToUser(auth.getId(),auth.getPoeni()+100);
+                                 uDao.addPointsToUser(auth.getId(),auth.getPoeni()-auth.getPoeni());
                                 /*Clearuje kart i prebacuje na ordere*/
 				korpa_list.clear();
 				response.sendRedirect("orders.jsp");

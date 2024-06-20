@@ -38,6 +38,7 @@ public class UserDao {
             	user.setName(rs.getString("uname"));
             	user.setEmail(rs.getString("email"));
                 user.setAccess(rs.getString("access"));
+                user.setPoeni(rs.getInt("poeni"));
             }
         } catch (SQLException e) {
             System.out.print(e.getMessage());
@@ -89,4 +90,18 @@ public class UserDao {
             System.out.println(e.getMessage());
         }
                 }
+                  public boolean addPointsToUser(int id, int points) {
+        boolean result = false;
+        String query = "UPDATE users SET poeni = ? WHERE id = ?";
+        try {
+            PreparedStatement ps = this.con.prepareStatement(query);
+            ps.setInt(1, points);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+            result = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

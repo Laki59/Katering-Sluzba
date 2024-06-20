@@ -30,12 +30,13 @@ public class OrderServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date();
-
+            UserDao userDao = new UserDao(DBConnection.getConnection());
             User auth = (User) request.getSession().getAttribute("auth");
 
             /* Uzima usera iz sesije*/
             if (auth != null) {
                 String productId = request.getParameter("id");
+
                 int productQuantity = Integer.parseInt(request.getParameter("quantity"));
                 if (productQuantity <= 0) {
                 	productQuantity = 1;
@@ -46,6 +47,7 @@ public class OrderServlet extends HttpServlet {
                 orderModel.setUid(auth.getId());
                 orderModel.setQunatity(productQuantity);
                 orderModel.setDate(formatter.format(date));
+                userDao.addPointsToUser(auth.getId(), auth.getPoeni()+100);
                 /*Kreira order objekat*/
                 OrderDao orderDao = new OrderDao(DBConnection.getConnection());
                 boolean result = orderDao.insertOrder(orderModel);

@@ -36,11 +36,11 @@
 
 <%@include file="head.jsp"%>
 
- <title>Katering Ginic</title>
+ <title>Ketering Ginic</title>
 </head>
 <body>
 	<%@include file="navbar2.jsp"%>
-	  <title>Ketering Ginic</title>
+	
 		<div class="card-header my-3">Vase narudzbine!</div>
 		<table class="table table-light">
 			<thead>

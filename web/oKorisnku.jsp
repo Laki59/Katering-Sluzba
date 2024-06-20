@@ -30,6 +30,10 @@ if (auth != null) {
                             <input type="text" value="<%=auth.getId()%>" name="dId" class="form-control" readonly>
                         </div>
                         <div class="form-group">
+                            <label>Poeni</label> 
+                            <input type="text" value="<%=auth.getPoeni()%>" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
                             <label>Ime</label> 
                             <input type="text" value="<%=auth.getName()%>" name="dIme" class="form-control" required="">
                         </div>
