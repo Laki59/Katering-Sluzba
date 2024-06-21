@@ -36,7 +36,7 @@ public class AddToCartServlet extends HttpServlet {
             if (korpa_list == null) {
                 korpaList.add(cm);
                 session.setAttribute("korpa_list", korpaList);
-                response.sendRedirect("services.jsp");
+                response.sendRedirect("services2.jsp");
             } else {
                 korpaList = korpa_list;
 
@@ -44,13 +44,13 @@ public class AddToCartServlet extends HttpServlet {
                 for (Cart c : korpa_list) {
                     if (c.getId() == id) {
                         exist = true;
-                        response.sendRedirect("services.jsp");
+                        response.sendRedirect("services2.jsp");
                     }
                 }
 
                 if (!exist) {
                     korpaList.add(cm);
-                    response.sendRedirect("services.jsp");
+                    response.sendRedirect("services2.jsp");
                 }
             }
         }

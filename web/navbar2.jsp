@@ -24,8 +24,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="services.jsp">Usluge</a></li>
-                <li class="nav-item"><a class="nav-link" href="cart.jsp">Kolica</a></li>
+                <li class="nav-item"><a class="nav-link" href="services2.jsp">Usluge</a></li>
+                <li class="nav-item"><a class="nav-link" href="cart.jsp">Korpa</a></li>
                 <li class="nav-item"><a class="nav-link" href="onama.jsp">O nama</a></li>
                     <%
                     if (auth != null) {
