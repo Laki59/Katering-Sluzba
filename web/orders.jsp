@@ -41,7 +41,7 @@
 <body>
 	<%@include file="navbar2.jsp"%>
 	
-		<div class="card-header my-3">Vase narudzbine!</div>
+		<div class="card-header my-3">Vase narudzbine!
 		<table class="table table-light">
 			<thead>
 				<tr>

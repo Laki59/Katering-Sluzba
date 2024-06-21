@@ -55,7 +55,7 @@ font-size: 25px;
 
 	<div class="container my-3">
 		<div class="d-flex py-3"><h3>Cena: ${total} din. </h3> <a class="mx-3 btn btn-primary" href="CheckoutServlet">Kupi sve</a></div>
-                <div class="d-flex py-3"><h3>Cena sa koriscenjem Vasim poenima ${total-auth.getPoeni()} din. </h3> <a class="mx-3 btn btn-primary" href="CheckOutReductionServlet">Kupi sve</a></div>
+                <div class="d-flex py-3"><h3>Cena sa koriscenjem Vasih poena ${total-auth.getPoeni()} din. </h3> <a class="mx-3 btn btn-primary" href="CheckoutReductionServlet">Kupi sve</a></div>
 		<table class="table table-light">
 			<thead>
 				<tr>

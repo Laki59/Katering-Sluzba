@@ -6,9 +6,12 @@ package DAO;
  */
 import java.sql.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import models.Cart;
 import models.Product;
+import servlets.RegistracijaServlet;
 
 public class ProductDao {
 	private Connection con;
@@ -144,4 +147,21 @@ public class ProductDao {
         }
         //return result;
     }
+    /*
+    public void DodajProduct(String name,String category,Double price,String image){
+        try {
+            query = "NSERT INTO products (name,category,price,image) VALUES (?,?,?,?)";
+            pst = this.con.prepareStatement(query);
+
+            pst.setString(1, name);
+            pst.setString(2, category);
+            pst.setDouble(3, price);
+            pst.setString(4, image);
+            pst.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println("GRESK " + ex);
+        }
+    }
+*/
 }

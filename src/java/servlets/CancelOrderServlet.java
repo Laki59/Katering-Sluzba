@@ -22,6 +22,7 @@ public class CancelOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	
+        /*Uzima ID,pita da li ima ID,ako ima,poziva cancelProduct iz PorductDao*/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try(PrintWriter out = response.getWriter()) {
 			String id = request.getParameter("id");

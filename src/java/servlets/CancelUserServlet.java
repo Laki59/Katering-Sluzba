@@ -21,7 +21,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class CancelUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	
+	/*Pita da li ID postoji i ako postoji zove deleteUser iz UserDao*/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try(PrintWriter out = response.getWriter()) {
 			String id = request.getParameter("id");

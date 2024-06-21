@@ -24,6 +24,7 @@ public class OKorisnikuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	
+        /*Duge me oKorisniku.jsp,obezbedjuje menjaje podataka preko UserDao*/
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try(PrintWriter out = response.getWriter()) {
 			String ime = request.getParameter("dIme");

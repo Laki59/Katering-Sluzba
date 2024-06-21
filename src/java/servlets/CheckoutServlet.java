@@ -44,14 +44,15 @@ public class CheckoutServlet extends HttpServlet {
 					order.setUid(auth.getId());
 					order.setQunatity(c.getQuantity());
 					order.setDate(formatter.format(date));
-                                         
+                                        /*dodaje poene korisniku*/
+                                         uDao.addPointsToUser(auth.getId(),auth.getPoeni()+100*c.getQuantity());
 					/*Konekcija sa BP i ubacivanje u order tabelu*/
                                        
 					OrderDao oDao = new OrderDao(DBConnection.getConnection());
 					boolean result = oDao.insertOrder(order);
 					if(!result) break;
 				}
-                               uDao.addPointsToUser(auth.getId(),auth.getPoeni()+100);
+                               
                                 /*Clearuje kart i prebacuje na ordere*/
 				korpa_list.clear();
 				response.sendRedirect("orders.jsp");

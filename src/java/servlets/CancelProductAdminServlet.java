@@ -21,7 +21,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class CancelProductAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	
+	/*Isto kao CancelPorductServlet,samo za Admina*/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try(PrintWriter out = response.getWriter()) {
 			String id = request.getParameter("id");

@@ -30,6 +30,7 @@ public class RemoveServlet extends HttpServlet {
 				ArrayList<Cart> korpa_list = (ArrayList<Cart>) request.getSession().getAttribute("korpa_list");
 				if (korpa_list != null) {
 					for (Cart c : korpa_list) {
+                                            /*uzima Id od tekuceg item-a i klikom na dugme brise taj item sa tim ID-om*/
 						if (c.getId() == Integer.parseInt(productId)) {
 							korpa_list.remove(korpa_list.indexOf(c));
 							break;

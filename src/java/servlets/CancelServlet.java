@@ -21,7 +21,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class CancelServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	
+	/*CancelOrder isto se pita da li ID postoji,ako da zove cancelOrder komandu iz OrderDao*/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try(PrintWriter out = response.getWriter()) {
 			String id = request.getParameter("id");

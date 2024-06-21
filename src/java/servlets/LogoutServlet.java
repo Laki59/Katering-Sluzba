@@ -26,6 +26,7 @@ public class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		try (PrintWriter out = response.getWriter()) {
+                    /*dohvata auth(prijavljena osoba) u sesiji i removuje*/
 			if(request.getSession().getAttribute("auth")!=null) {
 				request.getSession().removeAttribute("auth");
 				response.sendRedirect("login.jsp");

@@ -24,7 +24,7 @@ if (auth != null) {
         <div class="container">
             <div class="card w-50 mx-auto my-5">
                 <div class="card-body">
-                    <form method="POST" action="OKorisnikuServlet">
+                    <form method="post" action="OKorisnikuServlet">
                         <div class="form-group">
                             <label>Id</label> 
                             <input type="text" value="<%=auth.getId()%>" name="dId" class="form-control" readonly>
@@ -43,7 +43,7 @@ if (auth != null) {
                         </div>
                         <div class="form-group">
                             <label>Sifra</label> 
-                            <input type="password" name="dSifra" class="form-control" required="">
+                            <input type="password" name="dSifra" value="<%=auth.getPassword()%>" class="form-control" required="">
                         </div>
                         <div class="text-center">
                              <input type="submit" value="izmeni"/>
