@@ -7,7 +7,10 @@
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
     request.setAttribute("person", auth);
-}%>
+}
+
+%>
+
 
 <!DOCTYPE html>
 <html>

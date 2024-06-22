@@ -45,7 +45,7 @@ List<Product> products = pd.getAllProducts();
                                 
                                 <a class="btn btn-primary" href="SlatkaHrana.jsp">SlatkaHrana</a><br><br>
                                 
-                                <a class="btn btn-primary" href="Usluge.jsp">Usluge</a><br><br>
+                                <a class="btn btn-primary" href="Usluge.jsp">Proslave</a><br><br>
                             </div>
                         </div>
                     </div>

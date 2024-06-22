@@ -84,7 +84,7 @@ font-size: 25px;
 								<a class="btn btn-sm btn-decre" href="QuantityServlet?action=dec&id=<%=c.getId()%>"><i class="fas fa-minus-square"></i></a>
                                                                 
 							</div>
-							
+							<button type="submit" class="btn btn-primary btn-sm">Kupi</button>
 						</form>
 					</td>
                                         

@@ -24,10 +24,7 @@
 	}else{
 		response.sendRedirect("login.jsp");
 	}
-	ArrayList<Cart> korpa_list = (ArrayList<Cart>) session.getAttribute("korpa_list");
-	if (korpa_list != null) {
-		request.setAttribute("korpa_list", korpa_list);
-	}
+	
 	
 	%>
 <!DOCTYPE html>

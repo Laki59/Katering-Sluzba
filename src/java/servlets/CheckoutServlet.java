@@ -47,12 +47,12 @@ public class CheckoutServlet extends HttpServlet {
                                         /*dodaje poene korisniku*/
                                          uDao.addPointsToUser(auth.getId(),auth.getPoeni()+100*c.getQuantity());
 					/*Konekcija sa BP i ubacivanje u order tabelu*/
-                                       
+                                         
 					OrderDao oDao = new OrderDao(DBConnection.getConnection());
 					boolean result = oDao.insertOrder(order);
 					if(!result) break;
 				}
-                               
+                               auth.setPoeni(auth.getPoeni());
                                 /*Clearuje kart i prebacuje na ordere*/
 				korpa_list.clear();
 				response.sendRedirect("orders.jsp");

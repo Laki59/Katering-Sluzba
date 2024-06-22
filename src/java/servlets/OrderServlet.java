@@ -47,7 +47,7 @@ public class OrderServlet extends HttpServlet {
                 orderModel.setUid(auth.getId());
                 orderModel.setQunatity(productQuantity);
                 orderModel.setDate(formatter.format(date));
-                userDao.addPointsToUser(auth.getId(), auth.getPoeni()+100);
+                userDao.addPointsToUser(auth.getId(), auth.getPoeni()+100*productQuantity);
                 /*Kreira order objekat*/
                 OrderDao orderDao = new OrderDao(DBConnection.getConnection());
                 boolean result = orderDao.insertOrder(orderModel);
