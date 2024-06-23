@@ -4,17 +4,12 @@
     Author     : User
 --%>
 
-<%@page import="konekcija.DBConnection"%>
-<%@page import="DAO.ProductDao"%>
-<%@page import="models.*"%>
-<%@page import="java.util.*"%>
+
 <%
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
     request.setAttribute("person", auth);
 }
-ProductDao pd = new ProductDao(DBConnection.getConnection());
-List<Product> products = pd.getAllProducts();
 %>
 
 <!DOCTYPE html>
@@ -41,11 +36,11 @@ List<Product> products = pd.getAllProducts();
                         <div class="card w-100">
                             <div class="card-body">
                                 <br>
-                                <a class="btn btn-primary" href="SlanaHrana.jsp">SlatkaHrana</a><br><br>
+                                <a class="btn btn-primary" href="SlanaHrana.jsp">Slana hrana</a><br><br>
                                 
-                                <a class="btn btn-primary" href="SlatkaHrana.jsp">SlatkaHrana</a><br><br>
+                                <a class="btn btn-primary" href="SlatkaHrana.jsp">Slatka hrana</a><br><br>
                                 
-                                <a class="btn btn-primary" href="Usluge.jsp">Proslave</a><br><br>
+                                <a class="btn btn-primary" href="proslave.jsp">Proslave</a><br><br>
                             </div>
                         </div>
                     </div>

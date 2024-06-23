@@ -1,9 +1,3 @@
-<%-- 
-    Document   : SlanaHrana
-    Created on : Jun 23, 2024, 1:46:50?PM
-    Author     : User
---%>
-
 <%@page import="konekcija.DBConnection"%>
 <%@page import="DAO.ProductDao"%>
 <%@page import="models.*"%>
@@ -41,7 +35,7 @@ List<Product> products = pd.getAllProducts();
         <%
                     if (!products.isEmpty()) {
                             for (Product p : products) {
-                            if("Slano".equals(p.getCategory())){
+                            if("Proslava".equals(p.getCategory())){
                     %>
       <div class="menu-group">
         <div class="menu-item">
@@ -57,8 +51,8 @@ List<Product> products = pd.getAllProducts();
               Kategorija <%=p.getCategory()%>
             </p>
             <div class="mt-3 d-flex justify-content-between">
-              <a class="btn btn-dark" href="AddToCartServlet?id=<%=p.getId()%>">U korpu</a> <a
-                                        class="btn btn-primary" href="OrderServlet?quantity=1&id=<%=p.getId()%>">Kupi sada</a>
+             <a
+                                        class="btn btn-primary" href="OrderServlet?quantity=1&id=<%=p.getId()%>">Naruci</a>
               </div>
           </div>
             
