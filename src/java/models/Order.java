@@ -13,17 +13,27 @@ public class Order extends Product{
 	private int uid;
 	private int qunatity;
 	private String date;
+        private String datumD;
 	
 	public Order() {
 	}
 	
-	public Order(int orderId, int uid, int qunatity, String date) {
+	public Order(int orderId, int uid, int qunatity, String date,String datumD) {
 		super();
 		this.orderId = orderId;
 		this.uid = uid;
 		this.qunatity = qunatity;
 		this.date = date;
+                this.datumD=datumD;
 	}
+
+    public String getDatumD() {
+        return datumD;
+    }
+
+    public void setDatumD(String datumD) {
+        this.datumD = datumD;
+    }
 
 	public Order(int uid, int qunatity, String date) {
 		super();

@@ -104,4 +104,19 @@ public class UserDao {
         }
         return result;
     }
+public User getPoints(int id) {
+        boolean result = false;
+        String query = "select poeni from users  where id=?;";
+        try {
+            PreparedStatement ps = this.con.prepareStatement(query);
+            ps.setInt(1, id);
+            
+            ps.executeUpdate();
+            result = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+            return null;
+       
+    }
 }

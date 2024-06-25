@@ -56,6 +56,10 @@
         <servlet-name>CancelProductAdminServlet</servlet-name>
         <servlet-class>servlets.CancelProductAdminServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IzmeniUsluguServlet</servlet-name>
+        <servlet-class>servlets.IzmeniUsluguServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistracijaServlet</servlet-name>
         <url-pattern>/RegistracijaServlet</url-pattern>
@@ -111,5 +115,9 @@
     <servlet-mapping>
         <servlet-name>CancelProductAdminServlet</servlet-name>
         <url-pattern>/CancelProductAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IzmeniUsluguServlet</servlet-name>
+        <url-pattern>/IzmeniUsluguServlet</url-pattern>
     </servlet-mapping>
 </web-app>

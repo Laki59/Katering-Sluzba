@@ -49,10 +49,12 @@ List<Product> products = pd.getAllProducts();
               
             <p class="menu-item-description">
               Kategorija <%=p.getCategory()%>
+             
             </p>
             <div class="mt-3 d-flex justify-content-between">
-             <a
-                                        class="btn btn-primary" href="OrderServlet?quantity=1&id=<%=p.getId()%>">Naruci</a>
+                 <a class="btn btn-dark" href="AddToCartServlet?id=<%=p.getId()%>">U korpu</a>
+           
+                                   
               </div>
           </div>
             

@@ -44,6 +44,7 @@
 				<tr>
                                     <th scope="col">Id</th>
 					<th scope="col">Datum</th>
+                                        <th scope="col">Datum dostave</th>
 					<th scope="col">Ime</th>
 					<th scope="col">Kategorija</th>
 					<th scope="col">Kolicina</th>
@@ -58,6 +59,7 @@
 					<tr>
                                             <td><%=o.getOrderId() %></td>
 						<td><%=o.getDate() %></td>
+                                                <td><%=o.getDatumD() %></td>
 						<td><%=o.getName() %></td>
 						<td><%=o.getCategory() %></td>
 						<td><%=o.getQunatity() %></td>

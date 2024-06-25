@@ -69,6 +69,7 @@ if (auth != null) {
                 <th>Korisnik</th>
                 <th>Kolicina</th>
                 <th>Datum narudzbine</th>
+                <th>Datum dostave</th>
                 <th>Izbrisi</th>
 
             </tr>
@@ -77,7 +78,7 @@ if (auth != null) {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/katering","root","SKIJANJE123");
                 Statement st=con.createStatement();
-                String str="select orders.o_id,products.name,users.uname,orders.o_quantity,orders.o_date from orders JOIN users on users.id=orders.u_id JOIN products on products.id=orders.p_id";
+                String str="select orders.o_id,products.name,users.uname,orders.o_quantity,orders.o_date,orders.datumD from orders JOIN users on users.id=orders.u_id JOIN products on products.id=orders.p_id";
                 ResultSet rs=st.executeQuery(str);
             while(rs.next()){%>
 
@@ -89,6 +90,7 @@ if (auth != null) {
                 <td><%=rs.getString("uname") %></td>
                 <td><%=rs.getString("o_quantity") %></td>
                 <td><%=rs.getString("o_date") %></td>
+                <td><%=rs.getString("datumD") %></td>
                 <td><a class="btn btn-sm btn-danger" href="CancelServlet?id=<%=rs.getString("o_id")%>">X</a></td>
             </tr>
             <%} 

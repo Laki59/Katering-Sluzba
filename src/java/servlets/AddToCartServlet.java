@@ -24,7 +24,7 @@ public class AddToCartServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 
         try (PrintWriter out = response.getWriter()) {
-//        	out.print("add to cart servlet");
+
 
             ArrayList<Cart> korpaList = new ArrayList<>();
             int id = Integer.parseInt(request.getParameter("id"));

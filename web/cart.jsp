@@ -28,6 +28,8 @@ if (korpa_list != null ) {
 	request.setAttribute("total", total);
 	request.setAttribute("korpa_list", korpa_list);
 }
+ProductDao pd = new ProductDao(DBConnection.getConnection());
+List<Product> products = pd.getAllProducts();
 %>
 <!DOCTYPE html>
 <html>
@@ -54,15 +56,19 @@ font-size: 25px;
 	<%@include file="navbar2.jsp"%>
 
 	<div class="container my-3">
-		<div class="d-flex py-3"><h3>Cena: ${total} din. </h3> <a class="mx-3 btn btn-primary" href="CheckoutServlet">Kupi sve</a></div>
-                <div class="d-flex py-3"><h3>Cena sa koriscenjem Vasih poena ${total-auth.getPoeni()} din. </h3> <a class="mx-3 btn btn-primary" href="CheckoutReductionServlet">Kupi sve</a></div>
+            <form action="CheckoutServlet" method="GET">
+		<div class="d-flex py-3"><h3>Cena: ${total} din. </h3> <input type="submit"  class="mx-3 btn btn-primary" value="Kupi sve">
+                    <h3> Datum: </h3><input type="datetime-local" name="datumD" required="" /></div>
+           
+                <div class="d-flex py-3"><h3>Cena sa koriscenjem Vasih poena ${total-auth.getPoeni()} din. </h3> </div>
 		<table class="table table-light">
 			<thead>
 				<tr>
 					<th scope="col">Ime</th>
 					<th scope="col">Kategorija</th>
 					<th scope="col">Cena</th>
-					<th scope="col">Kupi sada!</th>
+					<th scope="col"></th>
+                                      
 					<th scope="col">Odustani</th>
 				</tr>
 			</thead>
@@ -84,17 +90,20 @@ font-size: 25px;
 								<a class="btn btn-sm btn-decre" href="QuantityServlet?action=dec&id=<%=c.getId()%>"><i class="fas fa-minus-square"></i></a>
                                                                 
 							</div>
-							<button type="submit" class="btn btn-primary btn-sm">Kupi</button>
-						</form>
+							
+          
+                                                
 					</td>
-                                        
+                                       
 					<td><a href="RemoveServlet?id=<%=c.getId()%>" class="btn btn-sm btn-danger">Remove</a></td>
 				</tr>
 
 				<%
 				}}%>
 			</tbody>
+                        
 		</table>
+                        </form>
 	</div>
 
 </body>

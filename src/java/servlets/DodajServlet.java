@@ -50,7 +50,7 @@ public class DodajServlet extends HttpServlet {
             pst.setDouble(3, cena);
             pst.setString(4, slika);
             pst.executeUpdate();
-            response.sendRedirect("services.jsp");
+            response.sendRedirect("services2.jsp");
             pst.close();
             veza.close();
         } catch (ClassNotFoundException ex) {

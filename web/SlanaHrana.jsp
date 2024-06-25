@@ -33,10 +33,12 @@ List<Product> products = pd.getAllProducts();
 <body>
     <%@include file="navbar2.jsp"%>
         <%@include file="orderboot.jsp"%>
+        
   <div class="container">
     <div class="menu">
       <h2 class="menu-group-heading">
-        Slatka Hrana
+          Slatka Hrana
+          
       </h2>
         <%
                     if (!products.isEmpty()) {
@@ -57,9 +59,10 @@ List<Product> products = pd.getAllProducts();
               Kategorija <%=p.getCategory()%>
             </p>
             <div class="mt-3 d-flex justify-content-between">
-              <a class="btn btn-dark" href="AddToCartServlet?id=<%=p.getId()%>">U korpu</a> <a
-                                        class="btn btn-primary" href="OrderServlet?quantity=1&id=<%=p.getId()%>">Kupi sada</a>
+              <a class="btn btn-dark" href="AddToCartServlet?id=<%=p.getId()%>">U korpu</a> 
+                                       
               </div>
+              
           </div>
             
         </div>
@@ -67,7 +70,7 @@ List<Product> products = pd.getAllProducts();
       </div>
       <%}}}%>
     </div>
-    <a class="btn btn-primary" href="services2.jsp">Nazad na meni</a><br><br>
+    <a class="btn btn-primary" href="services2.jsp"><-</a><br><br>
   </div>
 </body>
 </html>

@@ -29,6 +29,7 @@ public class OrderServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            String datumD=request.getParameter("datumD");
             Date date = new Date();
             UserDao userDao = new UserDao(DBConnection.getConnection());
             User auth = (User) request.getSession().getAttribute("auth");
@@ -47,7 +48,13 @@ public class OrderServlet extends HttpServlet {
                 orderModel.setUid(auth.getId());
                 orderModel.setQunatity(productQuantity);
                 orderModel.setDate(formatter.format(date));
+                if(datumD == null){
+                orderModel.setDatumD(formatter.format(date));}
+                else{
+                    orderModel.setDatumD(datumD);
+                }
                 userDao.addPointsToUser(auth.getId(), auth.getPoeni()+100*productQuantity);
+                
                 /*Kreira order objekat*/
                 OrderDao orderDao = new OrderDao(DBConnection.getConnection());
                 boolean result = orderDao.insertOrder(orderModel);

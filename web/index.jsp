@@ -27,7 +27,7 @@ if (auth != null) {
 			<h1>Dobrodosli na nasu stranicu!</h1>
 			<h2>Ketering sluzba Ginic</h2>
 			<div class="buttons">
-                            <button><a href="services.jsp"> Nase usluge!</a></button>
+                            <button><a href="services2.jsp"> Nase usluge!</a></button>
                             <button class="btn2"><a href="onama.jsp">O nama!</a></button>
 		</div>
 		</div>

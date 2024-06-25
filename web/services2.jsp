@@ -36,11 +36,16 @@ if (auth != null) {
                         <div class="card w-100">
                             <div class="card-body">
                                 <br>
+                                
                                 <a class="btn btn-primary" href="SlanaHrana.jsp">Slana hrana</a><br><br>
                                 
                                 <a class="btn btn-primary" href="SlatkaHrana.jsp">Slatka hrana</a><br><br>
                                 
                                 <a class="btn btn-primary" href="proslave.jsp">Proslave</a><br><br>
+                                
+                                 <%if(auth.getAccess()==userId || auth.getAccess()==userM){%>
+                                        <a class="btn btn-primary" href="izmeniUslugu.jsp">Izmeni</a>
+            <%}%>
                             </div>
                         </div>
                     </div>

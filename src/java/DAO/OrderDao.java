@@ -29,12 +29,13 @@ public class OrderDao {
 	public boolean insertOrder(Order model) {
         boolean result = false;
         try {
-            query = "insert into orders (p_id, u_id, o_quantity, o_date) values(?,?,?,?)";
+            query = "insert into orders (p_id, u_id, o_quantity, o_date,datumD) values(?,?,?,?,?)";
             pst = this.con.prepareStatement(query);
             pst.setInt(1, model.getId());
             pst.setInt(2, model.getUid());
             pst.setInt(3, model.getQunatity());
             pst.setString(4, model.getDate());
+            pst.setString(5, model.getDatumD());
             pst.executeUpdate();
             result = true;
         } catch (SQLException e) {
@@ -63,6 +64,7 @@ public class OrderDao {
                 order.setPrice(product.getPrice()*rs.getInt("o_quantity"));
                 order.setQunatity(rs.getInt("o_quantity"));
                 order.setDate(rs.getString("o_date"));
+                order.setDatumD(rs.getString("datumD"));
                 list.add(order);
             }
         } catch (Exception e) {

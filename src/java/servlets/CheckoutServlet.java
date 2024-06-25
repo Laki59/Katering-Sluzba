@@ -33,6 +33,7 @@ public class CheckoutServlet extends HttpServlet {
             Date date = new Date();
                         /*Uzima cart i user-a iz sesije*/
                          UserDao uDao = new UserDao(DBConnection.getConnection());
+                         String datumD=request.getParameter("datumD");
 			ArrayList<Cart> korpa_list = (ArrayList<Cart>) request.getSession().getAttribute("korpa_list");
 			User auth = (User) request.getSession().getAttribute("auth");
                         /*Proverava da li ih ima*/
@@ -44,8 +45,9 @@ public class CheckoutServlet extends HttpServlet {
 					order.setUid(auth.getId());
 					order.setQunatity(c.getQuantity());
 					order.setDate(formatter.format(date));
+                                        order.setDatumD(datumD);
                                         /*dodaje poene korisniku*/
-                                         uDao.addPointsToUser(auth.getId(),auth.getPoeni()+100*c.getQuantity());
+                                         uDao.addPointsToUser(auth.getId(),auth.getPoeni()+500);
 					/*Konekcija sa BP i ubacivanje u order tabelu*/
                                          
 					OrderDao oDao = new OrderDao(DBConnection.getConnection());

@@ -16,6 +16,7 @@ if (auth != null) {
             body{
                 background-color:lightblue;
             }
+            
         </style>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,16 +34,19 @@ if (auth != null) {
                             <input type="text" name="ime" class="form-control" placeholder="Ime...">
                         </div>
                         <div class="form-group">
-                            <label>Kategorija:</label> 
-                            <input type="text" name="category" class="form-control" placeholder="Kategorija...">
-                        </div>
+                        <label>Kategorija</label> <br>
+                        <select name="category" id="category" class="form-control">
+                            <option value="Slatko ">Slatko</option>
+                            <option value="Slano">Slano</option>
+                        </select>
+                    </div>
                         <div class="form-group">
                             <label>Cena:</label> 
                             <input type="text" name="cena" class="form-control" placeholder="Cena...">
                         </div>
                         <div class="form-group">
                             <label>Slika</label> 
-                            <input type="text" name="slika" class="form-control" placeholder="Slika...">
+                            <input type="file" name="slika" class="form-control" placeholder="Slika...">
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Dodaj!</button>
