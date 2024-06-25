@@ -25,7 +25,7 @@ public class AddToCartServlet extends HttpServlet {
 
         try (PrintWriter out = response.getWriter()) {
 
-
+            /*Nova korpaList,i novi cart objekat cm,koji uzima ID i stavlja quantity na 1 automatski*/
             ArrayList<Cart> korpaList = new ArrayList<>();
             int id = Integer.parseInt(request.getParameter("id"));
             Cart cm = new Cart();
@@ -33,13 +33,15 @@ public class AddToCartServlet extends HttpServlet {
             cm.setQuantity(1);
             HttpSession session = request.getSession();
             ArrayList<Cart> korpa_list = (ArrayList<Cart>) session.getAttribute("korpa_list");
+            /*Ako je korpa prazna stavlja sve Cart objekte u korpaList*/
             if (korpa_list == null) {
                 korpaList.add(cm);
                 session.setAttribute("korpa_list", korpaList);
                 response.sendRedirect("services2.jsp");
             } else {
+                /* ako nije prazan samo nastavlja da stavlja*/
                 korpaList = korpa_list;
-
+                /*gleda da li item vec postoji u korpi,ako da,samo vraca na meni,ako ne stavlja ga u korpu*/
                 boolean exist = false;
                 for (Cart c : korpa_list) {
                     if (c.getId() == id) {

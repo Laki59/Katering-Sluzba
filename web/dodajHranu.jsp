@@ -35,7 +35,7 @@ if (auth != null) {
                         <div class="form-group">
                         <label>Kategorija</label> <br>
                         <select name="category" id="category" class="form-control">
-                            <option value="Slatko ">Slatko</option>
+                            <option value="Slatko">Slatko</option>
                             <option value="Slano">Slano</option>
                         </select>
                     </div>

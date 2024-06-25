@@ -27,8 +27,6 @@ if (korpa_list != null ) {
 	request.setAttribute("total", total);
 	request.setAttribute("korpa_list", korpa_list);
 }
-ProductDao pd = new ProductDao(DBConnection.getConnection());
-List<Product> products = pd.getAllProducts();
 %>
 <!DOCTYPE html>
 <html>
@@ -82,13 +80,14 @@ font-size: 25px;
 					<td>
 						<form action="OrderServlet" method="post" class="form-inline">
 						<input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
+                                                <%if ("Slano".equals(c.getCategory()) || "Slatko".equals(c.getCategory())){%>
 							<div class="form-group d-flex justify-content-between">
 								<a class="btn bnt-sm btn-incre" href="QuantityServlet?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a> 
 								<input type="text" name="quantity" class="form-control"  value="<%=c.getQuantity()%>" readonly> 
 								<a class="btn btn-sm btn-decre" href="QuantityServlet?action=dec&id=<%=c.getId()%>"><i class="fas fa-minus-square"></i></a>
                                                                 
 							</div>
-							
+							<%}%>
           
                                                 
 					</td>
@@ -102,7 +101,7 @@ font-size: 25px;
                         
 		</table>
                         <div class="d-flex py-2"><h3>Cena: ${total} din. </h3> <input type="submit"  class="mx-3 btn btn-primary" value="Kupi sve">
-                    <h3> Datum: </h3><input type="datetime-local" name="datumD" required="" /></div>
+                    <h3> Datum: </h3><input type="datetime-local" name="datumD" required=""  min="2024-06-27T00:00" /></div>
                      <div class="d-flex py-3"><h3>Cena sa koriscenjem Vasih poena ${total-auth.getPoeni()} din. </h3> </div>
                         </form>
 	</div>
