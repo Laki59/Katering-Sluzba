@@ -1,7 +1,7 @@
 
 <%@page import="models.*"%>
 <%@page import="java.util.*"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
 
 <%
 User auth = (User) request.getSession().getAttribute("auth");
@@ -48,11 +48,17 @@ if (auth != null) {
                             <label>Sifra</label> 
                             <input type="password" name="dSifra" value="<%=auth.getPassword()%>" class="form-control" required="">
                         </div>
+                        
                         <div class="text-center">
                              <input type="submit" value="izmeni"/>
                         </div>
                     </form>
-
+                        <center>
+                      <% String poruka=(String)request.getAttribute("poruka");
+        if(poruka != null && !poruka.trim().equals("")){%>
+        <p style="color:red;"> <%=poruka%></p>
+        <%}%>
+                        </center>
                 </div>
             </div>
 

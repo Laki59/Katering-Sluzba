@@ -8,6 +8,7 @@
 <%@page import="DAO.ProductDao"%>
 <%@page import="models.*"%>
 <%@page import="java.util.*"%>
+
 <%
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {

@@ -1,10 +1,8 @@
 <%-- 
-    Document   : services2
-    Created on : Jun 21, 2024, 6:44:07?PM
+    Document   : dodaj
+    Created on : Jun 14, 2024, 11:45:53?PM
     Author     : User
 --%>
-
-
 <%
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
@@ -37,13 +35,11 @@ if (auth != null) {
                             <div class="card-body">
                                 <br>
                                 
-                                <a class="btn btn-primary" href="SlanaHrana.jsp">Slana hrana</a><br><br>
+                                <a class="btn btn-primary" href="dodajHranu.jsp">Dodaj Uslugu</a><br><br>
                                 
-                                <a class="btn btn-primary" href="SlatkaHrana.jsp">Slatka hrana</a><br><br>
+                                <a class="btn btn-primary" href="izmeniUslugu.jsp">Izmeni uslugu</a><br><br>
                                 
-                                <a class="btn btn-primary" href="proslave.jsp">Proslave</a><br><br>
                                 
-                                 
                             </div>
                         </div>
                     </div>

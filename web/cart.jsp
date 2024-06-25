@@ -9,8 +9,7 @@
 <%@page import="models.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.text.DecimalFormat"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+
 
 <%
 DecimalFormat dcf = new DecimalFormat("#.##");
@@ -57,10 +56,9 @@ font-size: 25px;
 
 	<div class="container my-3">
             <form action="CheckoutServlet" method="GET">
-		<div class="d-flex py-3"><h3>Cena: ${total} din. </h3> <input type="submit"  class="mx-3 btn btn-primary" value="Kupi sve">
-                    <h3> Datum: </h3><input type="datetime-local" name="datumD" required="" /></div>
+		
            
-                <div class="d-flex py-3"><h3>Cena sa koriscenjem Vasih poena ${total-auth.getPoeni()} din. </h3> </div>
+               
 		<table class="table table-light">
 			<thead>
 				<tr>
@@ -103,6 +101,9 @@ font-size: 25px;
 			</tbody>
                         
 		</table>
+                        <div class="d-flex py-2"><h3>Cena: ${total} din. </h3> <input type="submit"  class="mx-3 btn btn-primary" value="Kupi sve">
+                    <h3> Datum: </h3><input type="datetime-local" name="datumD" required="" /></div>
+                     <div class="d-flex py-3"><h3>Cena sa koriscenjem Vasih poena ${total-auth.getPoeni()} din. </h3> </div>
                         </form>
 	</div>
 

@@ -1,10 +1,11 @@
 <%-- 
     Document   : adminOrders
-    Created on : Jun 15, 2024, 3:38:28 PM
+    Created on : Jun 15, 2024, 3:38:28?PM
     Author     : User
 --%>
 <%@page import="java.sql.*"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <%
 User auth = (User) request.getSession().getAttribute("auth");

@@ -10,8 +10,7 @@
 <%@page import="DAO.ProductDao"%>
 <%@page import="models.*"%>
 <%@page import="java.util.*"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+
 	<%
 	DecimalFormat dcf = new DecimalFormat("#.##");
 	request.setAttribute("dcf", dcf);
@@ -38,7 +37,7 @@
 <body>
 	<%@include file="navbar2.jsp"%>
 	
-		<div class="card-header my-3">Vase narudzbine!
+		<div class="card-header my-3">
 		<table class="table table-light">
 			<thead>
 				<tr>

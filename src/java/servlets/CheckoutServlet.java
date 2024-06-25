@@ -37,7 +37,7 @@ public class CheckoutServlet extends HttpServlet {
 			ArrayList<Cart> korpa_list = (ArrayList<Cart>) request.getSession().getAttribute("korpa_list");
 			User auth = (User) request.getSession().getAttribute("auth");
                         /*Proverava da li ih ima*/
-			if(korpa_list != null && auth!=null) {
+			if(auth!=null) {
                             /*Za svaku stvar u kolicima pravi order objekat*/
 				for(Cart c:korpa_list) {
 					Order order = new Order();
@@ -64,7 +64,7 @@ public class CheckoutServlet extends HttpServlet {
 					response.sendRedirect("login.jsp");
 				}
                                 /*Ako je cart parazan ne radi nista*/
-				response.sendRedirect("cart.jsp");
+				
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			

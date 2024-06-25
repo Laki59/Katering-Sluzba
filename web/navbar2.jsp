@@ -31,11 +31,12 @@
                     if (auth != null) {
                     %>
                     <%if(auth.getAccess()==userId){%>
-                <li class="nav-item"><a class="nav-link" href="dodaj.jsp">Dodaj novi service</a></li>
+               
                 <li class="nav-item"><a class="nav-link" href="adminOrders.jsp">ADMIN</a></li>
+                <li class="nav-item"><a class="nav-link" href="uslugeAdmin.jsp">Izmeni usluge</a></li>
                     <%} if(auth.getAccess()==userM){%>
                 <li class="nav-item"><a class="nav-link" href="menadzerUsluge.jsp">MENADZER</a></li>
-                 <li class="nav-item"><a class="nav-link" href="dodaj.jsp">Dodaj novi service</a></li>
+                 <li class="nav-item"><a class="nav-link" href="uslugeAdmin.jsp">Izmeni usluge</a></li>
                 <%}%>
                 <li class="nav-item"><a class="nav-link" href="orders.jsp">Narudzbine</a></li>
                 <li class="nav-item"><a class="nav-link" href="LogoutServlet">Logout</a></li>

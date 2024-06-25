@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-
-
 import konekcija.DBConnection;
 import DAO.UserDao;
 import jakarta.servlet.ServletException;
