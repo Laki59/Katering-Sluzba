@@ -28,7 +28,7 @@ if (auth != null) {
         <%@include file="orderboot.jsp"%>
         <div class="container">
             <center>
-                <div class="card-header my-3"><br><h1>Nase usluge</h1>
+                <div class="card-header my-3"><br><h1>Admin usluge</h1>
 
                    <div class="col-md-3 my-3">
                         <div class="card w-100">

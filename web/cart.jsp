@@ -100,9 +100,9 @@ font-size: 25px;
 			</tbody>
                         
 		</table>
-                        <div class="d-flex py-2"><h3>Cena: ${total} din. </h3> <input type="submit"  class="mx-3 btn btn-primary" value="Kupi sve">
-                    <h3> Datum: </h3><input type="datetime-local" name="datumD" required=""  min="2024-06-27T00:00" /></div>
-                     <div class="d-flex py-3"><h3>Cena sa koriscenjem Vasih poena ${total-auth.getPoeni()} din. </h3> </div>
+                        <div class="d-flex py-2"><h3>Cena: ${total} din. </h3> <input type="submit"  class="mx-3 btn btn-primary" value="Kupi">
+                    <h3> Datum dostave: </h3><input type="datetime-local" name="datumD" required=""  min="2024-06-27T00:00" /></div>
+                        <div class="d-flex py-3"><h3>Cena sa koriscenjem Vasih poena ${total-auth.getPoeni()} din. </h3><a class="mx-3 btn btn-primary" href="CheckoutReduceServlet"> Kupi</a> </div>
                         </form>
 	</div>
 

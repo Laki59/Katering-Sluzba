@@ -38,7 +38,7 @@ List<Product> products = pd.getAllProducts();
   <div class="container">
     <div class="menu">
       <h2 class="menu-group-heading">
-          Slatka Hrana
+          Slana hrana
           
       </h2>
         <%
