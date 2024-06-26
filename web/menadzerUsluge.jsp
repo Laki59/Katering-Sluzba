@@ -3,12 +3,19 @@
     Created on : Jun 19, 2024, 7:47:34 PM
     Author     : User
 --%>
-<%@page import="java.sql.*"%>
+<%@page import="konekcija.DBConnection"%>
+<%@page import="DAO.ProductDao"%>
+<%@page import="models.*"%>
+<%@page import="java.util.*"%>
+
 <%
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
     request.setAttribute("person", auth);
-}%>
+}
+ProductDao pd = new ProductDao(DBConnection.getConnection());
+List<Product> products = pd.getAllProducts();
+%>
  <%@include file="head.jsp"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,33 +39,22 @@ if (auth != null) {
                 <th>Izbrisi</th>
 
             </tr>
-            <%
-                try{
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/katering","root","SKIJANJE123");
-                Statement st=con.createStatement();
-                String str="select id,name,category,price,image from products";
-                ResultSet rs=st.executeQuery(str);
-            while(rs.next()){%>
-   
 
+   
+<%for (Product p:products){%>
             <tr>
 
-                <td><%=rs.getString("id") %></td>
-                <td><%=rs.getString("name") %></td>
-                <td><%=rs.getString("category") %></td>
-                <td><%=rs.getString("price") %></td>
-                <td><%=rs.getString("image") %></td>
-                <td><a class="btn btn-sm btn-danger" href="CancelProductServlet?id=<%=rs.getString("id")%>">X</a></td>
+                <td><%=p.getId()%></td>
+                <td><%=p.getName()%></td>
+                <td><%=p.getCategory() %></td>
+                <td><%=p.getPrice() %></td>
+                <td><%=p.getImage()%></td>
+                <td><a class="btn btn-sm btn-danger" href="CancelProductServlet?id=<%=p.getId()%>">X</a></td>
             </tr>
-            <%} 
-} catch(Exception e){
-
-}
-            %>
-                       
+      <%}%>
         </table>
     </center>
+        <%}%>
     </body>
-    <%}%>
+    
 </html>

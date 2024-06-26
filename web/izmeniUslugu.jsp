@@ -28,50 +28,34 @@ List<Product> products = pd.getAllProducts();
         <%@include file="head.jsp"%>
     </head>
     <body>
-        <%@include file="navbar2.jsp"%>
-        <%@include file="orderboot.jsp"%>
-
-<% if(auth.getAccess()==userM || auth.getAccess()==userId){%>
+         <%@include file="navbar2.jsp"%>
+         <% if(auth.getAccess()==userM || auth.getAccess()==userId){%>
     <center>
-        <h2>USLUGE</h2>
         <table class="styled-table">
             <tr>
-                <th>Id</th>
-                <th>Usluga/Hrana </th>
+                <th>Id narudzbine</th>
+                <th>Usluga </th>
                 <th>Kategorija</th>
                 <th>Cena</th>
                 <th>Slika</th>
 
-
             </tr>
-            <%
-                try{
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/katering","root","SKIJANJE123");
-                Statement st=con.createStatement();
-                String str="select id,name,category,price,image from products";
-                ResultSet rs=st.executeQuery(str);
-            while(rs.next()){%>
 
-
+   
+<%for (Product p:products){%>
             <tr>
 
-                <td><%=rs.getString("id") %></td>
-                <td><%=rs.getString("name") %></td>
-                <td><%=rs.getString("category") %></td>
-                <td><%=rs.getString("price") %></td>
-                <td><%=rs.getString("image") %></td>
-
+                <td><%=p.getId()%></td>
+                <td><%=p.getName()%></td>
+                <td><%=p.getCategory() %></td>
+                <td><%=p.getPrice() %></td>
+                <td><%=p.getImage()%></td>
             </tr>
-            <%} 
-} catch(Exception e){
-
-}
-            %>
-
+      <%}%>
         </table>
-
     </center>
+       
+
 
     <div class="container">
         <div class="card w-50 mx-auto my-5">

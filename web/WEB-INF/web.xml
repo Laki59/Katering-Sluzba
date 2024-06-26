@@ -45,10 +45,6 @@
         <servlet-class>servlets.CancelUserServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CancelOrderServlet</servlet-name>
-        <servlet-class>servlets.CancelProductServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>OKorisnikuServlet</servlet-name>
         <servlet-class>servlets.OKorisnikuServlet</servlet-class>
     </servlet>
@@ -59,6 +55,10 @@
     <servlet>
         <servlet-name>IzmeniUsluguServlet</servlet-name>
         <servlet-class>servlets.IzmeniUsluguServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CancelProductServlet</servlet-name>
+        <servlet-class>servlets.CancelProductServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegistracijaServlet</servlet-name>
@@ -105,10 +105,6 @@
         <url-pattern>/CancelUserServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CancelOrderServlet</servlet-name>
-        <url-pattern>/CancelOrderServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>OKorisnikuServlet</servlet-name>
         <url-pattern>/OKorisnikuServlet</url-pattern>
     </servlet-mapping>
@@ -119,5 +115,9 @@
     <servlet-mapping>
         <servlet-name>IzmeniUsluguServlet</servlet-name>
         <url-pattern>/IzmeniUsluguServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CancelProductServlet</servlet-name>
+        <url-pattern>/CancelProductServlet</url-pattern>
     </servlet-mapping>
 </web-app>
