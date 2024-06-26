@@ -35,8 +35,8 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /*uzima parametre sa login.jsp*/
-            String email = request.getParameter("login-email");
-            String password = request.getParameter("login-sifra");
+            String email = request.getParameter("email");
+            String password = request.getParameter("sifra");
 
             /*Pravi userDao i konektuje je sa BP preko userLogin*/
             UserDao udao = new UserDao(DBConnection.getConnection());

@@ -42,7 +42,7 @@ public class RegistracijaServlet extends HttpServlet {
 			}
 			response.sendRedirect("login.jsp");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch(ClassNotFoundException s){
                     s.printStackTrace();

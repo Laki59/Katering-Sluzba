@@ -9,14 +9,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import models.*;
-import jakarta.servlet.annotation.WebServlet;
+
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 
-@WebServlet(name = "AddToCartServlet", urlPatterns = "/add-to-cart")
+
 public class AddToCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

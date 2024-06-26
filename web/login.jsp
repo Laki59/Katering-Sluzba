@@ -34,11 +34,11 @@
                     <form action="LoginServlet" method="post">
                         <div class="form-group">
                             <label>Email address</label> 
-                            <input type="text" name="login-email" class="form-control" placeholder="Enter email">
+                            <input type="text" name="email" class="form-control" placeholder="Enter email">
                         </div>
                         <div class="form-group">
                             <label>Password</label> 
-                            <input type="password" name="login-sifra" class="form-control" placeholder="Password">
+                            <input type="password" name="sifra" class="form-control" placeholder="Password">
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Login</button>

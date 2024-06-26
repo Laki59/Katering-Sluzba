@@ -24,6 +24,7 @@ if (auth != null) {
     </head>
     <body>
         <%@include file="navbar2.jsp"%>
+        <% if(auth.getAccess()==userM || auth.getAccess()==userId){%>
         <div class="container">
             <div class="card w-50 mx-auto my-5">
                 <div class="card-body">
@@ -49,10 +50,14 @@ if (auth != null) {
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Dodaj!</button>
+                            <% String poruka=(String)request.getAttribute("poruka");
+        if(poruka != null && !poruka.trim().equals("")){%>
+        <p style="color:red;"> <%=poruka%></p>
+        <%}%>            
                         </div>
                     </form>
                 </div>
             </div>
-           
+           <%}%>
     </body>
 </html>

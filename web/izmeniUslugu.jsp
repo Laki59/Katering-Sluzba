@@ -31,7 +31,7 @@ List<Product> products = pd.getAllProducts();
         <%@include file="navbar2.jsp"%>
         <%@include file="orderboot.jsp"%>
 
-
+<% if(auth.getAccess()==userM || auth.getAccess()==userId){%>
     <center>
         <h2>USLUGE</h2>
         <table class="styled-table">
@@ -81,7 +81,7 @@ List<Product> products = pd.getAllProducts();
                         <label>Id</label> <br>
                         <select name="pId" id="pId" class="form-control">
                             <% for (Product p : products){%>
-                            <option value="Slatko"><%=p.getId()%></option>
+                            <option value="<%=p.getId()%>"><%=p.getId()%></option>
                             <%}%>
                         </select>
                     </div>
@@ -106,11 +106,17 @@ List<Product> products = pd.getAllProducts();
                     </div>
                     <div class="text-center">
                         <input type="submit" value="izmeni"/>
+                                        <% String poruka=(String)request.getAttribute("poruka");
+        if(poruka != null && !poruka.trim().equals("")){%>
+        <p style="color:red;"> <%=poruka%></p>
+        <%}%>            
+<%}%>
                     </div>
                 </form>
 
             </div>
         </div>
+
 
     </body>
 </html>

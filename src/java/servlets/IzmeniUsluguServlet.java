@@ -5,6 +5,7 @@
 package servlets;
 
 import DAO.ProductDao;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -21,12 +22,14 @@ import java.util.logging.Logger;
 
 
 public class IzmeniUsluguServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	
     
 	
         /*Duge me oKorisniku.jsp,obezbedjuje menjaje podataka preko UserDao*/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try(PrintWriter out = response.getWriter()) {
+                    try{
+                        
                     int id=Integer.parseInt(request.getParameter("pId"));
 			String ime = request.getParameter("pIme");
                       String kategorija = request.getParameter("pKategorija");
@@ -37,12 +40,17 @@ public class IzmeniUsluguServlet extends HttpServlet {
 				productDao.izmenaProduct(id, ime, kategorija, cena, slika);
 			}
 			response.sendRedirect("services2.jsp");
+                    }catch(Exception e){
+                        String poruka="";
+                        e.printStackTrace();
+                        poruka+="Cena nije broj";
+                        request.setAttribute("poruka", poruka);
+                        RequestDispatcher rd = request.getRequestDispatcher("izmeniUslugu.jsp");
+                rd.forward(request, response);
+                    }
+                    
 		
-        } catch (SQLException ex) {
-            System.out.println("GRESK " + ex);
-        }   catch (ClassNotFoundException ex) {
-                Logger.getLogger(OKorisnikuServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                }
 	}
 
 }

@@ -1,5 +1,5 @@
 <%-- 
-    Document   : dodaj
+    Document   : uslugeAdmin
     Created on : Jun 14, 2024, 11:45:53?PM
     Author     : User
 --%>
@@ -26,6 +26,7 @@ if (auth != null) {
     <body>
         <%@include file="navbar2.jsp"%>
         <%@include file="orderboot.jsp"%>
+        <% if(auth.getAccess()==userM || auth.getAccess()==userId){%>
         <div class="container">
             <center>
                 <div class="card-header my-3"><br><h1>Admin usluge</h1>
@@ -45,6 +46,6 @@ if (auth != null) {
                     </div>
             </center>
         </div>
-            
+            <%}%>
     </body>
 </html>

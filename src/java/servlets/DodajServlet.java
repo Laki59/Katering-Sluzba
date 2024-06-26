@@ -4,6 +4,7 @@
  */
 package servlets;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -32,12 +33,13 @@ public class DodajServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try{
         String ime = request.getParameter("ime");
         String kategorija = request.getParameter("category");
         double cena =Double.parseDouble( request.getParameter("cena"));
         String slika = request.getParameter("slika");
 
-        try {
+        
             String dbUrl = "jdbc:mysql://localhost:3306/katering";
             String user = "root";
             String pass = "SKIJANJE123";
@@ -53,11 +55,15 @@ public class DodajServlet extends HttpServlet {
             response.sendRedirect("services2.jsp");
             pst.close();
             veza.close();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(RegistracijaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            System.out.println("GRESK " + ex);
+        } catch(Exception e){
+            String poruka="";
+                        e.printStackTrace();
+                        poruka+="Cena nije broj";
+                        request.setAttribute("poruka", poruka);
+                        RequestDispatcher rd = request.getRequestDispatcher("dodajHranu.jsp");
+                rd.forward(request, response);
         }
+        
 
     }
 

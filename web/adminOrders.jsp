@@ -22,7 +22,7 @@ if (auth != null) {
     </head>
     <%@include file="navbar2.jsp"%>
     <body>
-
+<% if(auth.getAccess()==userM || auth.getAccess()==userId){%>
     <center>
         <table class="styled-table">
             <h2>KORISNICI</h2>
@@ -142,5 +142,6 @@ if (auth != null) {
         </table>
 
     </center>
+            <%}%>
 </body>
 </html>

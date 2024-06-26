@@ -11,25 +11,26 @@ import java.sql.SQLException;
 
 
 import konekcija.DBConnection;
-import DAO.OrderDao;
+import DAO.ProductDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 
-public class CancelServlet extends HttpServlet {
+public class CancelProductServlet extends HttpServlet {
 	
     
-	/*CancelOrder isto se pita da li ID postoji,ako da zove cancelOrder komandu iz OrderDao*/
+	
+        /*Uzima ID,pita da li ima ID,ako ima,poziva cancelProduct iz PorductDao*/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try(PrintWriter out = response.getWriter()) {
 			String id = request.getParameter("id");
 			if(id != null) {
-				OrderDao orderDao = new OrderDao(DBConnection.getConnection());
-				orderDao.cancelOrder(Integer.parseInt(id));
+				ProductDao productDao = new ProductDao(DBConnection.getConnection());
+				productDao.cancelProduct(Integer.parseInt(id));
 			}
-			response.sendRedirect("adminOrders.jsp");
+			response.sendRedirect("menadzerUsluge.jsp");
 		} catch (SQLException e) {
 			
 			e.printStackTrace();

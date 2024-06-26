@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
 
 public class OKorisnikuServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+
     
 	
         /*Duge me oKorisniku.jsp,obezbedjuje menjaje podataka preko UserDao*/
@@ -36,9 +36,9 @@ public class OKorisnikuServlet extends HttpServlet {
 			response.sendRedirect("LogoutServlet");
 		
         } catch (SQLException ex) {
-            System.out.println("GRESK " + ex);
+            ex.printStackTrace();
         }   catch (ClassNotFoundException ex) {
-                Logger.getLogger(OKorisnikuServlet.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
             }
 	}
 

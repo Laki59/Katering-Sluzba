@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 public class CancelProductAdminServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	
     
 	/*Isto kao CancelPorductServlet,samo za Admina*/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,7 +31,7 @@ public class CancelProductAdminServlet extends HttpServlet {
 			}
 			response.sendRedirect("adminOrders.jsp");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		} catch(ClassNotFoundException s){
                     s.printStackTrace();

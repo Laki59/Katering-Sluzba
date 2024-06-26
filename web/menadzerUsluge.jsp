@@ -20,6 +20,7 @@ if (auth != null) {
     </head>
     <body>
          <%@include file="navbar2.jsp"%>
+         <% if(auth.getAccess()==userM || auth.getAccess()==userId){%>
     <center>
         <table class="styled-table">
             <tr>
@@ -48,7 +49,7 @@ if (auth != null) {
                 <td><%=rs.getString("category") %></td>
                 <td><%=rs.getString("price") %></td>
                 <td><%=rs.getString("image") %></td>
-                <td><a class="btn btn-sm btn-danger" href="CancelOrderServlet?id=<%=rs.getString("id")%>">X</a></td>
+                <td><a class="btn btn-sm btn-danger" href="CancelProductServlet?id=<%=rs.getString("id")%>">X</a></td>
             </tr>
             <%} 
 } catch(Exception e){
@@ -59,4 +60,5 @@ if (auth != null) {
         </table>
     </center>
     </body>
+    <%}%>
 </html>

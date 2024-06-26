@@ -46,7 +46,7 @@
     </servlet>
     <servlet>
         <servlet-name>CancelOrderServlet</servlet-name>
-        <servlet-class>servlets.CancelOrderServlet</servlet-class>
+        <servlet-class>servlets.CancelProductServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>OKorisnikuServlet</servlet-name>
