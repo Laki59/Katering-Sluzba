@@ -4,6 +4,7 @@
  */
 package servlets;
 
+import DAO.ProductDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -13,9 +14,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import konekcija.DBConnection;
+
 
 /**
  *
@@ -40,21 +40,11 @@ public class DodajServlet extends HttpServlet {
         String slika = request.getParameter("slika");
 
         
-            String dbUrl = "jdbc:mysql://localhost:3306/katering";
-            String user = "root";
-            String pass = "SKIJANJE123";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection veza = DriverManager.getConnection(dbUrl, user, pass);
-            PreparedStatement pst = veza.prepareStatement("INSERT INTO products (name,category,price,image) VALUES (?,?,?,?)");
-
-            pst.setString(1, ime);
-            pst.setString(2, kategorija);
-            pst.setDouble(3, cena);
-            pst.setString(4, slika);
-            pst.executeUpdate();
-            response.sendRedirect("services2.jsp");
-            pst.close();
-            veza.close();
+            if(ime!=null){
+                ProductDao productDao=new ProductDao(DBConnection.getConnection());
+                productDao.DodajProduct(ime, kategorija, cena, slika);
+                response.sendRedirect("services2.jsp");
+            }
         } catch(Exception e){
             String poruka="";
                         e.printStackTrace();

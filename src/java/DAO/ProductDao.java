@@ -161,10 +161,12 @@ public class ProductDao {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-    /*
-    public void DodajProduct(String name,String category,Double price,String image){
+     }
+
+    public boolean DodajProduct(String name,String category,Double price,String image){
+        boolean result=false;
         try {
-            query = "NSERT INTO products (name,category,price,image) VALUES (?,?,?,?)";
+            query = "INSERT INTO products (name,category,price,image) VALUES (?,?,?,?)";
             pst = this.con.prepareStatement(query);
 
             pst.setString(1, name);
@@ -172,11 +174,13 @@ public class ProductDao {
             pst.setDouble(3, price);
             pst.setString(4, image);
             pst.executeUpdate();
-
+            result=true;
         } catch (SQLException ex) {
             System.out.println("GRESK " + ex);
         }
+        return result;
     }
-*/
+
 }
-}
+
+
